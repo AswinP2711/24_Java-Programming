@@ -2,43 +2,38 @@ class Pro {
     int pcode;
     String pname;
     double price;
+
+    Pro(int pcode,String pname,double price){
+        this.pcode=pcode;
+        this.pname=pname;
+        this.price=price;
+    }
+
+    String lowest(Pro p1,Pro p2,Pro p3){
+        if (p1.price < p2.price) {
+            if (p1.price < p3.price) {
+                return p1.pname;
+            }else{
+                return p3.pname;
+            }
+        }else{
+            if (p2.price < p3.price) {
+                return p2.pname;
+            }else{
+                return p3.pname;
+            }
+        }
+            
+    }
 }
 
 public class product {
     public static void main(String[] args) {
-        Pro product1=new Pro();
-        Pro product2=new Pro();
-        Pro product3=new Pro();
-        String lowest;
-        
-        product1.pcode=001;
-        product1.pname="Mouse";
-        product1.price=349.40;
+        Pro product1=new Pro(001,"Mouse",349.40);
+        Pro product2=new Pro(002,"Key Board",279.80);
+        Pro product3=new Pro(003,"Speaker",599.99);
 
-        product2.pcode=002;
-        product2.pname="Key Board";
-        product2.price=279.80;
-
-        product3.pcode=003;
-        product3.pname="Speaker";
-        product3.price=599.99;
-
-        if (product1.price < product2.price) {
-            if (product1.price < product3.price) {
-                lowest=product1.pname;
-            }else{
-                lowest=product3.pname;
-            }
-        }else{
-            if (product2.price < product3.price) {
-                lowest=product2.pname;
-            }else{
-                lowest=product3.pname;
-            }
-            
-        }
-
-        System.out.println("The product having lowest price is : "+lowest);
+        String low=product1.lowest(product1, product2, product3);
+        System.out.println("The product having lowest price is : "+low);
     }
-    
 }
