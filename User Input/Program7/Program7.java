@@ -1,0 +1,11 @@
+// Java Program to print the number of elements present in an array
+
+import java.util.Scanner;
+
+public class Program7{
+    public static void main(String[] args) {
+        int[] arr=new int[]{5,7,2,9,1};
+        System.out.println("The number of elements present in an array : "+arr.length);
+    }
+}
+
