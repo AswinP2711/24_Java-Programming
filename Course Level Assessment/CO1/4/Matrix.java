@@ -3,7 +3,8 @@
 import java.util.Scanner;
 
 class Mat {
-    int size;
+    int row;
+    int col;
 }
 
 public class Matrix {
@@ -13,43 +14,52 @@ public class Matrix {
         int isSymmetric = 1;
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the Size of the matrix : ");
-        matrix1.size = sc.nextInt();
 
-        int matrix[][] = new int[matrix1.size][matrix1.size];
-        int transpose[][] = new int[matrix1.size][matrix1.size];
+        System.out.println("Enter the Size of row : ");
+        matrix1.row = sc.nextInt();
 
-        System.out.println("Enter the elements of the first matrix : ");
-        for (int i = 0; i < matrix1.size; i++) {
-            for (int k = 0; k < matrix1.size; k++) {
+        System.out.println("Enter the Size of column : ");
+        matrix1.col = sc.nextInt();
+
+        if (matrix1.row != matrix1.col) {
+            System.out.println("The matrix must be a square matrix!!!");
+            System.exit(0);
+        }
+
+        int matrix[][] = new int[matrix1.row][matrix1.col];
+        int transpose[][] = new int[matrix1.col][matrix1.row];
+
+        System.out.println("Enter the elements of the matrix : ");
+        for (int i = 0; i < matrix1.row; i++) {
+            for (int k = 0; k < matrix1.col; k++) {
                 matrix[i][k] = sc.nextInt();
             }
         }
 
-        for (int i = 0; i < matrix1.size; i++) {
-            for (int k = 0; k < matrix1.size; k++) {
+        for (int i = 0; i < matrix1.row; i++) {
+            for (int k = 0; k < matrix1.col; k++) {
                 transpose[i][k] = matrix[k][i];
             }
         }
 
         System.out.println("Elements of the matrix is : ");
-        for (int i = 0; i < matrix1.size; i++) {
-            for (int k = 0; k < matrix1.size; k++) {
+        for (int i = 0; i < matrix1.row; i++) {
+            for (int k = 0; k < matrix1.col; k++) {
                 System.out.print(matrix[i][k] + " ");
             }
             System.out.println();
         }
 
         System.out.println("Transpose of the matrix is : ");
-        for (int i = 0; i < matrix1.size; i++) {
-            for (int k = 0; k < matrix1.size; k++) {
+        for (int i = 0; i < matrix1.col; i++) {
+            for (int k = 0; k < matrix1.row; k++) {
                 System.out.print(transpose[i][k] + " ");
             }
             System.out.println();
         }
 
-        for (int i = 0; i < matrix1.size; i++) {
-            for (int k = 0; k < matrix1.size; k++) {
+        for (int i = 0; i < matrix1.row; i++) {
+            for (int k = 0; k < matrix1.col; k++) {
                 if (transpose[i][k] != matrix[i][k]) {
                     isSymmetric = 0;
                     break;
