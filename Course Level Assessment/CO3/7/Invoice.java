@@ -25,10 +25,12 @@ class Invoice implements Bill{
 
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        int n;
+        int n,Ono;
         int netA=0;
         String ddate;
-        System.out.println("Enter the date(dd/MM/YYYY) : ");
+        System.out.println("Enter Order Number : ");
+        Ono=Integer.parseInt(sc.nextLine());
+        System.out.println("Enter date(dd/MM/YYYY) : ");
         ddate=sc.nextLine();
 
         System.out.println("How many product you want to buy : ");
@@ -43,6 +45,7 @@ class Invoice implements Bill{
             System.out.println("Enter detais of " + (i + 1) + " Product");
             arr[i].calculate();
         }
+        System.out.println("\tOrder No. : "+Ono);
         System.out.println("\tDate : "+ddate);
         System.out.println("\tProduct Id"+"\tName"+"\tQuantity"+"\tunit price"+"\tTotal");
         System.out.println("________________________________________________________________________");
